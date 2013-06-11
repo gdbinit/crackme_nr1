@@ -1,0 +1,46 @@
+ _____                _                       _  _    __  
+/  __ \              | |                    _| || |_ /  | 
+| /  \/_ __ __ _  ___| | ___ __ ___   ___  |_  __  _|`| | 
+| |   | '__/ _` |/ __| |/ / '_ ` _ \ / _ \  _| || |_  | | 
+| \__/\ | | (_| | (__|   <| | | | | |  __/ |_  __  _|_| |_
+ \____/_|  \__,_|\___|_|\_\_| |_| |_|\___|   |_||_|  \___/
+                                                          
+fG!'s OS X Crackme #1 package
+
+This is the source code of my first OS X crackme, described here:
+http://reverse.put.as/2012/01/24/my-first-crackme-from-hell-i-hope/
+
+* WARNING *
+
+This code is old, ugly, and my C coding skills improved a lot since
+I wrote this. I just cleaned up some comments and organize the
+Xcode project. Sorry for the mess but I don't have much time 
+or motivation to fix this code :-).
+Many things can be improved, maybe one of these days in #2.
+
+It works on Snow Leopard and Lion up to 10.7.2, newer releases it
+is untested.                                                          
+
+The Xcode project contains the following targets:
+- crackme: the crackme itself
+- protector: the code protector to be applied after crackme is compiled
+- function sizes: auxiliary util to calculate function sizes
+- crypt_functions: auxiliary util to encrypt functions from symbol table
+- manglemacho: auxiliary util that mangles mach-o headers
+
+The code doesn't seem to compile with Xcode 4.6 due to deprecated assembly
+prefix. Maybe I will give it a look and fix it.
+
+Hope to trigger your motivation and see some new OS X crackmes!
+GO WORK :-)
+
+The biggest vulnerability of this code is to use C library functions for
+the crackme input. DTrace can be a powerful ally to work around all the
+crypted chaos. The first person to crack it used this approach, and the
+second decrypted everything. The C library functions are rather easy to
+avoid and work around, the second approach is just a consequence of
+"if it runs it can be cracked". It's a crackme so its goal is to be 
+cracked :-).
+
+Enjoy,
+fG!
